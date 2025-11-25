@@ -1,0 +1,17 @@
+{
+  "name": "threejs-proj-2-car-display",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.13.0",
+    "three": "^0.181.2",
+    "vite": "^7.2.4"
+  }
+}
