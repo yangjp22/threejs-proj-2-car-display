@@ -2,6 +2,12 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls";
 
+import { loadManager } from "@/model/loadManager";
+import { City } from "@/model/City";
+import { Car } from "@/model/Car";
+import { MyLight } from "@/effect/MyLight";
+import { MySky } from "@/effect/MySky";
+
 
 export let scene, camera, renderer, controls;
 
@@ -20,6 +26,16 @@ function init() {
     renderer.shadowMap.enabled = true;
 
     app.appendChild(renderer.domElement);
+
+    // 加载汽车模型
+    loadManager("glb/mclaren.glb", (model) => {
+        model.traverse(obj => {
+            obj.castShadow = true;
+        });
+        new Car(model, scene, camera, controls);
+        new MyLight(scene);
+        new MySky(scene);
+    });
 }
 
 
